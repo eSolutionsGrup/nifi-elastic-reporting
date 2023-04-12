@@ -1,11 +1,11 @@
 package com.surpassun.datalab.nifi.reporting;
 
-import com.yammer.metrics.core.VirtualMachineMetrics;
 import io.searchbox.client.JestClient;
 import io.searchbox.core.Index;
 import org.apache.commons.io.IOUtils;
 import org.apache.nifi.annotation.documentation.CapabilityDescription;
 import org.apache.nifi.annotation.documentation.Tags;
+import org.apache.nifi.metrics.jvm.JmxJvmMetrics;
 import org.apache.nifi.reporting.ReportingContext;
 import org.apache.nifi.reporting.util.metrics.MetricsService;
 
@@ -42,7 +42,7 @@ public class JVMMetricsElasticSearchReportor extends AbstractElasticsearchReport
             return;
         }
 
-        final VirtualMachineMetrics virtualMachineMetrics = VirtualMachineMetrics.getInstance();
+        final JmxJvmMetrics virtualMachineMetrics = JmxJvmMetrics.getInstance();
         final Map<String, String> jvmMetrics = metricsService.getMetrics(virtualMachineMetrics);
         jvmMetrics.put("nodeId", nodeId);
         jvmMetrics.put("hostname", hostname);

@@ -19,11 +19,12 @@
     <parent>
         <groupId>com.surpassun.datalake</groupId>
         <artifactId>nifi-reporting</artifactId>
-        <version>1.0.0</version>
+        <version>1.19.0</version>
     </parent>
 
     <artifactId>nifi-reporting-nar</artifactId>
-    <version>1.0.0</version>
+    <version>1.19.0</version>
+
     <packaging>nar</packaging>
     <properties>
         <maven.javadoc.skip>true</maven.javadoc.skip>
